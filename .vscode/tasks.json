@@ -1,0 +1,104 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MongoDB demo: pick one",
+      "type": "shell",
+      "command": "\"${workspaceFolder}/run.sh\" ${input:demo}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "MongoDB demo: 3 live demos (demo1 demo2 demo3)",
+      "type": "shell",
+      "command": "\"${workspaceFolder}/run.sh\" live",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "MongoDB demo: all (check_data + 3 live demos + 4 supporting demos)",
+      "type": "shell",
+      "command": "\"${workspaceFolder}/run.sh\" all",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "MongoDB demo: interactive shell (type queries live)",
+      "type": "shell",
+      "command": "\"${workspaceFolder}/run.sh\" shell",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": true,
+        "clear": true
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "demo",
+      "type": "pickString",
+      "description": "Pick a demo",
+      "default": "check_data",
+      "options": [
+        {
+          "label": "check_data — connection & data check",
+          "value": "check_data"
+        },
+        {
+          "label": "demo1_selection — live demo 1: S1 COLLSCAN → S6/S8 IXSCAN",
+          "value": "demo1_selection"
+        },
+        {
+          "label": "demo2_join — live demo 2: joins J1 / J2 / J4 with $lookup",
+          "value": "demo2_join"
+        },
+        {
+          "label": "demo3_pushdown — live demo 3: $match pushed below $lookup",
+          "value": "demo3_pushdown"
+        },
+        {
+          "label": "compound_index — compound index ESR + covered query",
+          "value": "compound_index"
+        },
+        {
+          "label": "plan_cache — plan race + plan cache",
+          "value": "plan_cache"
+        },
+        {
+          "label": "pipeline_rewrite — aggregation pipeline optimizer",
+          "value": "pipeline_rewrite"
+        },
+        {
+          "label": "sort_memory — sort: memory limit, external sort, top-k, index order",
+          "value": "sort_memory"
+        },
+        {
+          "label": "extra_text_search — (extra) regex vs text index",
+          "value": "extra_text_search"
+        },
+        {
+          "label": "extra_sbe_engine — (extra) classic engine vs SBE",
+          "value": "extra_sbe_engine"
+        },
+        {
+          "label": "cleanup — drop the demo indexes",
+          "value": "cleanup"
+        }
+      ]
+    }
+  ]
+}
